@@ -1,0 +1,48 @@
+<table>
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Instructor name</th>
+      <th>Weekdays</th>
+      <th>Start_time</th>
+      <th>End_time</th>
+      <th>Course_code</th>
+      <th>Capacitty</th>
+      <th>Status</th>
+      <th>Room</th>
+    </thread>
+</table>
+
+ <tbody>
+   <% @courses.each do |product| %>
+     <tr>
+       <td><%= course.name %></td>
+       <td><%= course.full_message %></td>
+       <td><%= course.name %></td>
+       <td><%= course.full_message %></td>
+       <td><%= link_to 'Show', course %></td>
+       <td><%= link_to 'Edit', edit_course_path(course) %></td>
+       <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to_if course.name %></td>
+     </tr>
+   <% end %>
+ </tbody>
+</table>
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<div id="courses">
+  <% @courses.each do |course| %>
+    <%= render course %>
+    <p>
+      <%= link_to "Show this course", course %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New course", new_course_path %>
